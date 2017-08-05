@@ -5,11 +5,12 @@
  * lugar até que a lista esteja completamente ordenada */
 
 // numeros é um ponteiro que aponta para a array passada como argumento
-void selection_sort(int *numeros, int tamanho) {
+void selection_sort(int *numeros) {
 
+	int size = sizeof(*numeros) * 10;
 	/* TODO: Verificar porque o ponteiro tem um tamanho menor que
-	 * a array passada como argumento
-	 * int tamanho = sizeof(numeros) / sizeof(int); */
+	 * a array passada como argumento */
+	int tamanho = size / sizeof(int);
 	int min;
 	int cont1, cont2, aux, cont;
 
@@ -31,24 +32,4 @@ void selection_sort(int *numeros, int tamanho) {
 	}
 	printf("\n");
 
-}
-
-int main() {
-	int valores[10] = { 8, 4, 2, 6, 3, 1, 9, 7, 5, 0 }; 
-	int cont = 0, num, length;
-
-	length = sizeof(valores) / sizeof(int);
-	printf("tamanho: %d\n", length);
-
-	// Imprime a lista desordenada
-	for (cont = 0; cont < length; cont++) {
-		printf("%d ", valores[cont]);
-	}
-
-	printf("\n");
-
-	// Ordena a lista
-	selection_sort(valores, length);
-
-	return 0;
 }
