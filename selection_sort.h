@@ -1,1 +1,1 @@
-void selection_sort(int *numeros);
+void selection_sort(int numeros[], int tamanho);

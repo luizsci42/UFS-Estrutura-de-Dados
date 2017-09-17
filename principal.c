@@ -3,7 +3,7 @@
 
 int main() {
 	int valores[10] = { 8, 4, 2, 6, 3, 1, 9, 7, 5, 0 };
-	int cont = 0, num, length;
+	int cont = 0, length;
 	
 	length = sizeof(valores) / sizeof(int);
 
@@ -15,7 +15,7 @@ int main() {
 	printf("\n");
 
 	// Ordena a lista
-	selection_sort(valores);
+	selection_sort(valores, length);
 
 	return 0;
 }

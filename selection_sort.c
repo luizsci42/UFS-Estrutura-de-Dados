@@ -4,13 +4,8 @@
  * Se um elemeto m for menor que n, estes trocam de 
  * lugar até que a lista esteja completamente ordenada */
 
-// numeros é um ponteiro que aponta para a array passada como argumento
-void selection_sort(int *numeros) {
+void selection_sort(int numeros[], int tamanho) {
 
-	int size = sizeof(*numeros) * 10;
-	/* TODO: Verificar porque o ponteiro tem um tamanho menor que
-	 * a array passada como argumento */
-	int tamanho = size / sizeof(int);
 	int min;
 	int cont1, cont2, aux, cont;
 
