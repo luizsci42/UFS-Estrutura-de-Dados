@@ -1,3 +1,4 @@
+#include <stdio.h>
 /* Transforma a array passada em um heaper.
  * Para isso, v[i/2] >= v[i] para todo i.
  */
@@ -5,16 +6,18 @@ void heaper(int array[], int length) {
 	int i, aux;
 
 	for (i = 1; i <= length; i++) {
-		while (array[i/2] < i[i]) {
+		while (array[i/2] < array[i]) {
 			aux = array[i/2];
 			array[i/2] = array[i];
 			array[i] = aux;
 		}
 	}
 
+	printf("heap: \n");
 	for (i = 1; i <= length; i++) {
-		printf("Heap: %d ", array[i]);
+		printf("%d ", array[i]);
 	}
+	printf("\n");
 }
 
 int main() {
