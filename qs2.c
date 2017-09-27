@@ -34,6 +34,11 @@ int main() {
 	int *nulo;
 	nulo = iniciarVetorNulo(v);
 
+	// Só testando
+	for(i = 0; i < len; i++) {
+		printf("pre in: %d\n", nulo[i]);
+	}
+
 	inserir(10, nulo);
 
 	for(i = 0; i < len; i++) {
