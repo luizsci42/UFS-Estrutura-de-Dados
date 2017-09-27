@@ -38,6 +38,15 @@ arvore * inserir(arvore r, no *novo) {
     return r;
 }
 
+void imprimirNohs (no *noh) {
+    if (noh == NULL){
+        return;
+    }
+    printf("%s\n", noh->chave);
+    imprimirNohs(noh->dir);
+    imprimirNohs(noh->esq);
+}
+
 no *criaNoh(no *novo, char i){
     novo ->chave[0] = 'k';
     novo ->chave[1] = 'e';
@@ -78,8 +87,9 @@ int main() {
     tree = inserir(tree, no3);
     tree = inserir(tree, no2);
     tree = inserir(tree, no1);
-
+    
     busca(tree, "key4");
+    imprimirNohs(tree);
 
     return 0;
 }
