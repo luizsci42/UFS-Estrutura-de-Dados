@@ -40,9 +40,9 @@ void imprimirNohs (no *noh) {
     if (noh == NULL){
         return;
     }
-    printf("%s\n", noh->chave);
     imprimirNohs(noh->dir);
     imprimirNohs(noh->esq);
+    printf("%s\n", noh->chave);
 }
 
 no *criaNoh(no *novo, char i){
