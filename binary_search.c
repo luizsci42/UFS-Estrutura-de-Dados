@@ -7,11 +7,11 @@
  * procurado é maior ou menor que o número do meio. Se for
  * menor, dividiremos a array ao meio e repetimos o
  * processo até encontrar o número procurado.*/
-int buscaBinaria(int x, int len, int vetor[]) {
-	return binary_search(x, 0, len, vetor);
+int binarySearch(int x, int len, int vetor[]) {
+	return binarySearchInner(x, 0, len, vetor);
 }
 
-int binary_search(int x, int left, int len, int v[]) {
+int binarySearchInner(int x, int left, int len, int v[]) {
 
 	int mid, right = len;
 
@@ -20,9 +20,10 @@ int binary_search(int x, int left, int len, int v[]) {
 	}
 	else {
 		mid = (left + right)/2;
+
 		if(x > v[mid]) {
-		return binary_search(x, mid+1, right, v);
-	}
+			return binary_search(x, mid+1, right, v);
+		}
         else {
             return binary_search(x, left, mid, v);
         }
