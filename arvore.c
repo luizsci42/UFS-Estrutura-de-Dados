@@ -10,7 +10,6 @@ typedef struct no {
 
 typedef no *arvore; // referencia a raiz da árvore
 
-
 void busca(arvore r, char key[4]) {
     if(strcmp(r-> chave, key)==0) {
         printf("Chave %s encontrada\n", r->chave);
@@ -19,7 +18,6 @@ void busca(arvore r, char key[4]) {
     else if (strcmp(r-> chave, key)>0) {
         busca(r->esq, key);
     }
-
     else {
         busca(r->dir, key);
     }
