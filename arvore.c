@@ -36,13 +36,13 @@ arvore * inserir(arvore r, no *novo) {
     return r;
 }
 
-void imprimirNohs (no *noh) {
+void percorrerIn (no *noh) {
     if (noh == NULL){
         return;
     }
-    imprimirNohs(noh->dir);
-    imprimirNohs(noh->esq);
+    percorrerIn(noh->esq);
     printf("%s\n", noh->chave);
+    percorrerIn(noh->dir);
 }
 
 no *criaNoh(no *novo, char i){
@@ -56,38 +56,41 @@ no *criaNoh(no *novo, char i){
 }
 
 int main() {
-    // Criamos 8 nohs
-    no *no1 = malloc(sizeof(no));
-    no1 = criaNoh(no1, '1');
+	// Criamos 8 nohs
+	no *no1 = malloc(sizeof(no));
+	no1 = criaNoh(no1, '1');
     no *no2 = malloc(sizeof(no));
-    no2 = criaNoh(no2, '2');
-    no *no3 = malloc(sizeof(no));
-    no3 = criaNoh(no3, '3');
-    no *no4 = malloc(sizeof(no));
-    no4 = criaNoh(no4, '4');
-    no *no5 = malloc(sizeof(no));
-    no5 = criaNoh(no5, '5');
+	no2 = criaNoh(no2, '2');
+	no *no3 = malloc(sizeof(no));
+	no3 = criaNoh(no3, '3');
+	no *no4 = malloc(sizeof(no));
+	no4 = criaNoh(no4, '4');
+	no *no5 = malloc(sizeof(no));
+	no5 = criaNoh(no5, '5');
     no *no6 = malloc(sizeof(no));
-    no6 = criaNoh(no6, '6');
-    no *no7 = malloc(sizeof(no));
-    no7 = criaNoh(no7, '7');
-    no *no8 = malloc(sizeof(no));
-    no8 = criaNoh(no8, '8');
+	no6 = criaNoh(no6, '6');
+	no *no7 = malloc(sizeof(no));
+	no7 = criaNoh(no7, '7');
+	no *no8 = malloc(sizeof(no));
+	no8 = criaNoh(no8, '8');
+	no *no9 = malloc(sizeof(no));
+	no9 = criaNoh(no9, '9');
 
     no *tree;
 
     //Inserimos os 7 nohs na arvore no1
-    tree = inserir(NULL, no8);
-    tree = inserir(tree, no7);
-    tree = inserir(tree, no6);
-    tree = inserir(tree, no5);
+	tree = inserir(NULL, no5);
+	tree = inserir(tree, no9);
+	tree = inserir(tree, no7);
+	tree = inserir(tree, no6);
+	tree = inserir(tree, no8);
     tree = inserir(tree, no4);
-    tree = inserir(tree, no3);
+	tree = inserir(tree, no3);
     tree = inserir(tree, no2);
-    tree = inserir(tree, no1);
+	tree = inserir(tree, no1);
     
     busca(tree, "key4");
-    imprimirNohs(tree);
+    percorrerIn(tree);
 
     return 0;
 }
