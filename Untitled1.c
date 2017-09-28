@@ -8,10 +8,10 @@ typedef int Apontador;
 struct Valor;
 struct Array;
 void iniciar_Array(struct Array *array);
-void insere_fundo_Array(struct Valor valor, struct Array *item);
+void insere_ord_Array(struct Valor vl,struct Array *a);
 void retira_Array(Apontador p, struct Array *array, struct Valor *valor);
 void imprime_Array(struct Array lista);
-void insere_ord_Array(struct Valor vl,struct Array *a);
+
 
 struct Valor{
   int valor;
@@ -25,13 +25,19 @@ void iniciar_Array(struct Array *array){
   array->primeiro=inicio;
   array->ultimo=array->primeiro;
 }
-void insere_fundo_Array(struct Valor valor, struct Array *array){
-  if(array->ultimo>max){
-    printf("Lista Cheia\n");
-  }else{
-      array->item[array->ultimo-1]=valor;
-      array->ultimo++;
-  }
+void insere_ord_Array(struct Valor vl,struct Array *a){
+    int j;
+    int k=a->ultimo;
+    if(a->ultimo>max){
+        printf("Lista Cheia\n");
+    }else{
+        while((k>0)&&(vl.valor<a->item[k-1].valor)){
+            a->item[k]=a->item[k-1];
+            k--;
+        }
+        a->item[k]=vl;
+        a->ultimo++;
+    }
 }
 void retira_Array(Apontador p, struct Array *array, struct Valor *item){
     int i;
@@ -50,28 +56,13 @@ void imprime_Array(struct Array lista){
         printf("%d\n",lista.item[i].valor);
     }
 }
-void insere_ord_Array(struct Valor vl,struct Array *a){
-    int j;
-    //int k = vl.valor;
-    int k=a->ultimo;
-    if(a->ultimo>max){
-        printf("Lista Cheia\n");
-    }else{
-        while((k>0)&&(vl.valor<a->item[k-1].valor)){
-            a->item[k]=a->item[k-1];
-            k--;
-        }
-        a->item[k]=vl;
-        a->ultimo++;
-    }
-}
 
 int main(){
     struct Valor item1;
     struct Valor item2;
     struct Valor item3;
     struct Array array;
-    item1.valor=11;
+    item1.valor=1;
     item2.valor=12;
     item3.valor=10;
     iniciar_Array(&array);
@@ -79,7 +70,6 @@ int main(){
     insere_ord_Array(item2,&array);
     insere_ord_Array(item3,&array);
 
-    //imprime_Array(&array);
     imprime_Array(array);
     printf("fim\n");
     retira_Array(1,&array,&item2);
