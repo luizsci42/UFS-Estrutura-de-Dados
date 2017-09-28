@@ -59,14 +59,21 @@ void imprime_Array(struct Array lista){
 
 
 int main(){
+    struct Valor item;
     struct Array array;
     iniciar_Array(&array);
     int i;
     for (i=50; i>0; i--) {
-        struct Valor item;
+        //struct Valor item;
         item.valor=i;
         insere_ord_Array(item,&array);
     }
     imprime_Array(array);
+    printf("______________________\n");
+    retira_Array(5,&array,&item);
+    imprime_Array(array);
+
   return 0;
+
 }
+
