@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define inicio 1
-#define max 4
+#define max 51
 
 typedef int Apontador;
 
@@ -57,24 +57,16 @@ void imprime_Array(struct Array lista){
     }
 }
 
-int main(){
-    struct Valor item1;
-    struct Valor item2;
-    struct Valor item3;
-    struct Array array;
-    item1.valor=1;
-    item2.valor=12;
-    item3.valor=10;
-    iniciar_Array(&array);
-    insere_ord_Array(item1,&array);
-    insere_ord_Array(item2,&array);
-    insere_ord_Array(item3,&array);
 
+int main(){
+    struct Array array;
+    iniciar_Array(&array);
+    int i;
+    for (i=50; i>0; i--) {
+        struct Valor item;
+        item.valor=i;
+        insere_ord_Array(item,&array);
+    }
     imprime_Array(array);
-    printf("fim\n");
-    retira_Array(1,&array,&item2);
-    imprime_Array(array);
-    printf("fim\n");
   return 0;
 }
-
