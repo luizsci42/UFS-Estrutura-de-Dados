@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define inicio 1
-#define max 2
+#define max 3
 
 typedef int Apontador;
 
@@ -10,7 +10,7 @@ struct Array;
 void iniciar_Array(struct Array *array);
 void insere_fundo_Array(struct Valor valor, struct Array *item);
 void retira_Array(Apontador p, struct Array *array, struct Valor *valor);
-void imprime_Array(struct Array *array);
+void imprime_Array(struct Array lista);
 void insere_ord_Array(struct Valor vl,struct Array *a);
 
 struct Valor{
@@ -44,10 +44,10 @@ void retira_Array(Apontador p, struct Array *array, struct Valor *item){
         }
     }
 }
-void imprime_Array(struct Array *array){
+void imprime_Array(struct Array lista){
     int i;
-    for (i=1; i<max; i++) {
-            printf("%d\n", array[i]);
+    for(i=lista.primeiro-1;i<lista.ultimo-1;i++){
+        printf("%d\n",lista.item[i].valor);
     }
 }
 void insere_ord_Array(struct Valor vl,struct Array *a){
@@ -66,13 +66,21 @@ void insere_ord_Array(struct Valor vl,struct Array *a){
 
 int main(){
     struct Valor item1;
+    struct Valor item2;
+    struct Valor item3;
     struct Array array;
-    item1.valor=12;
+    item1.valor=11;
+    item2.valor=12;
+    item3.valor=10;
     iniciar_Array(&array);
     insere_ord_Array(item1,&array);
+    insere_ord_Array(item2,&array);
+    insere_ord_Array(item3,&array);
 
-    imprime_Array(&array);
+    //imprime_Array(&array);
+    imprimir(array);
     printf("fim\n");
 
   return 0;
 }
+
