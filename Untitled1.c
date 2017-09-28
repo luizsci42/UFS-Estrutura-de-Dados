@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define inicio 1
-#define max 3
+#define max 4
 
 typedef int Apontador;
 
@@ -20,7 +20,6 @@ struct Array{
   struct Valor item[max];
   Apontador primeiro;
   Apontador ultimo;
-
 };
 void iniciar_Array(struct Array *array){
   array->primeiro=inicio;
@@ -53,14 +52,16 @@ void imprime_Array(struct Array lista){
 }
 void insere_ord_Array(struct Valor vl,struct Array *a){
     int j;
-    int k = vl.valor;
+    //int k = vl.valor;
+    int k=a->ultimo;
     if(a->ultimo>max){
-    printf("Lista Cheia\n");
+        printf("Lista Cheia\n");
     }else{
-        for(j=a->ultimo;j>k;j--){
-           a->item[j]=a->item[j-1];
+        while((k>0)&&(vl.valor<a->item[k-1].valor)){
+            a->item[k]=a->item[k-1];
+            k--;
         }
-        a->item[a->ultimo-1]=vl;
+        a->item[k]=vl;
         a->ultimo++;
     }
 }
@@ -84,6 +85,6 @@ int main(){
     retira_Array(1,&array,&item2);
     imprime_Array(array);
     printf("fim\n");
-    return 0;
+  return 0;
 }
 
