@@ -80,7 +80,8 @@ int main(){
     //imprime_Array(&array);
     imprime_Array(array);
     printf("fim\n");
-
-  return 0;
+    retira_Array(1,&array,&item2);
+    imprime_Array(array);
+    printf("fim\n");
 }
 
