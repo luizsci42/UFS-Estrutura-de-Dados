@@ -20,6 +20,7 @@ struct Array{
   struct Valor item[max];
   Apontador primeiro;
   Apontador ultimo;
+
 };
 void iniciar_Array(struct Array *array){
   array->primeiro=inicio;
@@ -83,5 +84,6 @@ int main(){
     retira_Array(1,&array,&item2);
     imprime_Array(array);
     printf("fim\n");
+    return 0;
 }
 
