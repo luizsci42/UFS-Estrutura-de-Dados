@@ -78,7 +78,7 @@ int main(){
     insere_ord_Array(item3,&array);
 
     //imprime_Array(&array);
-    imprimir(array);
+    imprime_Array(array);
     printf("fim\n");
 
   return 0;
