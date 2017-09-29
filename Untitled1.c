@@ -78,6 +78,21 @@ void imprime_Array(struct Array lista){
     }
 }
 
+int buscaBinaria(struct Array *array, int elemento){
+    int head=0,i, end=(array->ultimo)-1;
+    while(end>=head){
+        i = (head+end)/2;
+        if(elemento< array->item[i].valor){
+            end = i-1;
+        }else if(elemento>array->item[i].valor){
+            head = i+1;
+        }else{
+            return i;
+        }
+    }
+    return -1;
+}
+
 int main(){
     struct Valor item;
     struct Valor item2;
