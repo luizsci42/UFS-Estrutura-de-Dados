@@ -22,14 +22,14 @@ int binarySearchInner(int x, int left, int len, int v[]) {
 	// Do contrário, divida o vetor ao meio
 	else {
 		mid = (left + right)/2;
-		/* Caso seja maior que o valor do meio, 
+		/* Caso seja maior que o valor do meio,
 		 * procure o valor do lado direito do vetor */
 		if(x > v[mid]) {
-			return binary_search(x, mid+1, right, v);
+			return binarySearchInner(x, mid+1, right, v);
 		}
 		// Caso contrário, busque ao lado esquerdo
         else {
-            return binary_search(x, left, mid, v);
+            return binarySearchInner(x, left, mid, v);
         }
 	}
 }
