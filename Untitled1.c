@@ -35,15 +35,21 @@ void insere_ord_Array(struct Valor vl,struct Array *a){
     }
 }
 
-int busca(struct Array *array, struct Valor *item){
-    int i;
-    for(i=0; i<array->ultimo;i++){
-        if (array->item[i].valor==item[0].valor){
-            printf("Valor %d encontrado em [%d]\n", item[0].valor, i);
+int busca(struct Array *array, struct Valor *item) {
+   int j = 0;
+   int n = array->ultimo;
+   while (j < n && array->item[j].valor < item[0].valor){
+        if (array->item[n].valor==item[0].valor){
+            printf("Valor %d encontrado\n", item[0].valor);
             return 1;
         }
-    }printf("Valor %d naoh encontrado\n", item[0].valor);
-    return 0;
+        else if (array->item[n].valor>item[0].valor){
+            n=n/2;
+        }else if (array->item[n].valor<item[0].valor){
+            n=n+1;
+        }
+        ++j;
+   }
 }
 
 void retira_Array(Apontador p, struct Array *array, struct Valor *item){
@@ -72,19 +78,18 @@ void imprime_Array(struct Array lista){
     }
 }
 
-
 int main(){
     struct Valor item;
     struct Valor item2;
     struct Array array;
     int i;
-  
+
     iniciar_Array(&array);
     for (i=50; i>0; i--) {
         item.valor=i;
         insere_ord_Array(item,&array);
     }
-  
+
     imprime_Array(array);
 
     item2.valor=30;
@@ -95,7 +100,7 @@ int main(){
     busca(&array,&item2);
     retira_Array(1,&array,&item2);
     busca(&array,&item2);
-  
+
     imprime_Array(array);
   return 0;
 }
